@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnrutbai"
+        android:text="RÚT NGẪU NHIÊN 3 LÁ BÀI"
+        android:backgroundTint="#006BEE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/imgView1"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/b1fv" />
+        <ImageView
+            android:id="@+id/imgView2"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/b1fv" />
+        <ImageView
+            android:id="@+id/imgView3"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/b1fv" />
+    </LinearLayout>
+    <TextView
+        android:textSize="20dp"
+        android:id="@+id/tvKQ"
+        android:text="Kết quả"
+        android:gravity="center"
+        android:background="#FFEB3B"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
