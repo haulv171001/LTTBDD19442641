@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     int manghinhbai[]={
             R.drawable.c1,R.drawable.c2,R.drawable.c3,R.drawable.c4,R.drawable.c5,
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.s1,R.drawable.s2,R.drawable.s3,R.drawable.s4,R.drawable.s5,
             R.drawable.s6,R.drawable.s7,R.drawable.s8,R.drawable.s9,R.drawable.s10,
             R.drawable.sj,R.drawable.sq,R.drawable.sk};
+            ArrayList<LaBai> CacLaDaRut = new ArrayList<LaBai>();
+            ArrayList<LaBai> CacLaBai = new ArrayList<LaBai>();// ds cac la bai;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 iv1.setImageResource(manghinhbai[balabai[0]]);
                 iv2.setImageResource(manghinhbai[balabai[1]]);
                 iv3.setImageResource(manghinhbai[balabai[2]]);
-
+                textViewKq.setText(tinhketqua(balabai));
             }
         });
 
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         do{
             int k = random(min,max);
             if(!kiemtraTrung(k,baso));
-                baso[i] = k;
+                baso[i++] = k;
 
         }while(i < 3);
         return baso;
@@ -69,5 +73,32 @@ public class MainActivity extends AppCompatActivity {
     // Ham random
     private int random(int min,int max){
         return min + (int)(Math.random()*((max-min)+1));
+    }
+    //
+    private String tinhketqua(int[] arr){
+        String ketqua = "";
+        if(tinhsoTay(arr)==3)
+            ketqua = "Kết quả 3 tây";
+        else{
+            int tong = 0;
+            for(int i=0;i<arr.length;i++)
+                if(arr[i] % 13 < 10)
+                    tong += arr[i] % 13 + 1;
+            if(tong % 10 == 0){
+                ketqua = "Kết quả bù,số tây là "+tinhsoTay(arr);
+            }else{
+                ketqua = "Kết quả"+(tong%10)+"nút,số tây là" + tinhsoTay(arr);
+            }
+        }
+        return ketqua;
+    }
+    //
+    private int tinhsoTay(int[]arr){
+        int  k= 0;
+        for(int i = 0 ; i < arr.length;i++)
+            if (arr[i] % 13 >= 10 && arr[i] > 10) {
+                k++;
+            }
+        return k;
     }
 }
