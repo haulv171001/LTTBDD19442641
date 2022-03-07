@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/HK6/LapTrinhThietBiDiDong/ThucHanh/TestDemo/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/HK6/LapTrinhThietBiDiDong/ThucHanh/TestDemo/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/HK6/LapTrinhThietBiDiDong/ThucHanh/TestDemo/app/src/main/res/layout/dong_hinh_anh.xml" value="0.1" />
+        <entry key="..\:/HK6/LapTrinhThietBiDiDong/ThucHanh/TestDemo/app/src/main/res/layout/listview_item.xml" value="0.22" />
       </map>
     </option>
   </component>

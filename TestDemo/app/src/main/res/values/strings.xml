@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TestDemo</string>
+    <string-array name="donvi_list">
+        <item>Phòng kế toán</item>
+        <item>Phòng tiếp thị</item>
+        <item>Phòng Quan hệ doanh nghiệp</item>
+        <item>Phòng Kỹ thuật</item>
+        <item>Bộ phận quản trị</item>
+        <item>Trung tâm phần mềm</item>
+    </string-array>
 </resources>
