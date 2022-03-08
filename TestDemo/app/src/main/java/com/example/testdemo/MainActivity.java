@@ -28,12 +28,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.biden,
             R.drawable.kimjongun,
             R.drawable.obama,
-            R.drawable.gaobac,
-            R.drawable.gaodo,
-            R.drawable.gaoxanh,
-            R.drawable.gaovang,
-            R.drawable.gaoden,
-            R.drawable.gaotrang
+            R.drawable.trump
     };
     ArrayList<HinhAnh> hinhAnhArrayList;
     hinhanhadapter hinhanhadapter;
@@ -71,16 +66,13 @@ public class MainActivity extends AppCompatActivity {
         GridView listView = new GridView(context);
         listView.setNumColumns(3);
         hinhAnhArrayList = new ArrayList<>();
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.biden));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.kimjongun));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.obama));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.trump));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaobac));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaoden));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaodo));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaotrang));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaoxanh));
-        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaovang));
+//        hinhAnhArrayList.add(new HinhAnh(R.drawable.biden));
+//        hinhAnhArrayList.add(new HinhAnh(R.drawable.kimjongun));
+//        hinhAnhArrayList.add(new HinhAnh(R.drawable.obama));
+//        hinhAnhArrayList.add(new HinhAnh(R.drawable.trump));
+        for(int i = 0 ; i < manghinh.length ; i ++){
+            hinhAnhArrayList.add(new HinhAnh(manghinh[i]));
+        }
         hinhanhadapter = new hinhanhadapter(this,R.layout.dong_hinh_anh,hinhAnhArrayList);
         listView.setAdapter(hinhanhadapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -158,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             nv_list.remove(vitrinhanvien);
-            avatar.setImageResource(R.drawable.gaobac);
+            avatar.setImageResource(R.drawable.trump);
             editTextNhapMa.setText("");
             editTextTen.setText("");
             if(radioGroupGenDer.getCheckedRadioButtonId() == R.id.Nu){

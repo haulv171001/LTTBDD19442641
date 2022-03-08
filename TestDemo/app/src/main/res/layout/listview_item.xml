@@ -25,21 +25,33 @@
         <TextView
             android:id="@+id/manhanvien"
             android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/tennhanvien"
             android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/gioitinh"
             android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/donvi"
             android:layout_weight="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingLeft="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>
