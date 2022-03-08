@@ -17,7 +17,13 @@ public class MyArrayAdapter extends ArrayAdapter<NhanVien> {
     int manghinh[] = {
             R.drawable.biden,
             R.drawable.kimjongun,
-            R.drawable.obama
+            R.drawable.obama,
+            R.drawable.gaobac,
+            R.drawable.gaodo,
+            R.drawable.gaoxanh,
+            R.drawable.gaovang,
+            R.drawable.gaoden,
+            R.drawable.gaotrang
     };
     Activity context = null;
     ArrayList<NhanVien> myArrayList = null;

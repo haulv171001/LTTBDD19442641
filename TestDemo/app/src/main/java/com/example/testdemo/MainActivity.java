@@ -27,7 +27,13 @@ public class MainActivity extends AppCompatActivity {
     int manghinh[] = {
             R.drawable.biden,
             R.drawable.kimjongun,
-            R.drawable.obama
+            R.drawable.obama,
+            R.drawable.gaobac,
+            R.drawable.gaodo,
+            R.drawable.gaoxanh,
+            R.drawable.gaovang,
+            R.drawable.gaoden,
+            R.drawable.gaotrang
     };
     ArrayList<HinhAnh> hinhAnhArrayList;
     hinhanhadapter hinhanhadapter;
@@ -68,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
         hinhAnhArrayList.add(new HinhAnh(R.drawable.biden));
         hinhAnhArrayList.add(new HinhAnh(R.drawable.kimjongun));
         hinhAnhArrayList.add(new HinhAnh(R.drawable.obama));
+        hinhAnhArrayList.add(new HinhAnh(R.drawable.trump));
+        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaobac));
+        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaoden));
+        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaodo));
+        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaotrang));
+        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaoxanh));
+        hinhAnhArrayList.add(new HinhAnh(R.drawable.gaovang));
         hinhanhadapter = new hinhanhadapter(this,R.layout.dong_hinh_anh,hinhAnhArrayList);
         listView.setAdapter(hinhanhadapter);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -145,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             nv_list.remove(vitrinhanvien);
-            avatar.setImageResource(R.drawable.ic_launcher_background);
+            avatar.setImageResource(R.drawable.gaobac);
             editTextNhapMa.setText("");
             editTextTen.setText("");
             if(radioGroupGenDer.getCheckedRadioButtonId() == R.id.Nu){
