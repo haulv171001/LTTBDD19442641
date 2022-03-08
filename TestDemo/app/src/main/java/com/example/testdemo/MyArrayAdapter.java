@@ -8,9 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 
 public class MyArrayAdapter extends ArrayAdapter<NhanVien> {
@@ -23,7 +20,7 @@ public class MyArrayAdapter extends ArrayAdapter<NhanVien> {
     Activity context = null;
     ArrayList<NhanVien> myArrayList = null;
     int layoutId;
-    public MyArrayAdapter(Activity context,int textviewId,ArrayList<NhanVien> obj){
+    public MyArrayAdapter(Activity context, int textviewId, ArrayList<NhanVien> obj){
         super(context,textviewId,obj);
         this.context =  context;
         this.layoutId = textviewId;

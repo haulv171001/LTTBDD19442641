@@ -1,6 +1,8 @@
 package com.example.testdemo;
 
-public class NhanVien {
+import java.io.Serializable;
+
+public class NhanVien implements Serializable {
     private int avatar;
     private String maso;
     private String hoten;
@@ -64,6 +66,6 @@ public class NhanVien {
 
     @Override
     public String toString() {
-        return "NhanVien("+maso+","+hoten+","+gioitinh+","+donvi+")";
+        return maso+","+hoten+","+gioitinh+","+donvi;
     }
 }

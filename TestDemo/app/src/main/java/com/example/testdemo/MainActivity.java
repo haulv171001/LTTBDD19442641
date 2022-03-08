@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,17 +20,25 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable {
     int manghinh[] = {
             R.drawable.biden,
             R.drawable.kimjongun,
             R.drawable.obama,
             R.drawable.trump
     };
+    Resources resources;
     ArrayList<HinhAnh> hinhAnhArrayList;
     hinhanhadapter hinhanhadapter;
     MyArrayAdapter myArrayAdapter;
@@ -43,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroupGenDer;
     Spinner spinnerdonvi;
     ListView listViewNhanVien;
-    Button btThemNV,btXoa,btTruyVan,btThemAnhNV,Thoat;
+    Button btThemNV,btXoa,btTruyVan,btThemAnhNV,Thoat,btGhi,btDoc;
     int vitrinhanvien;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
     listViewNhanVien = findViewById(R.id.lvNhanVien);
     btThemNV = findViewById(R.id.btThemNV);
     btXoa = findViewById(R.id.btXoaNV);
-    btTruyVan = findViewById(R.id.btTruyVan);
+    btGhi = findViewById(R.id.btghi);
+    btDoc = findViewById(R.id.btdoc);
     btThemAnhNV = findViewById(R.id.btavatar);
     Thoat = findViewById(R.id.btThoat);
     avatar = findViewById(R.id.imgavatar);
@@ -168,5 +178,46 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     });
+    btGhi.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v)  {
+            try {
+                FileOutputStream fos = openFileOutput("test.txt",MODE_PRIVATE);
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+               for(NhanVien nv : nv_list){
+                   oos.writeObject(nv);
+               }
+                oos.close();
+                fos.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    });
+    btDoc.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ArrayList<NhanVien> list = null;
+            try {
+                FileInputStream fileInputStream = new FileInputStream("test.txt");
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                 while (objectInputStream.available() > 0 ){
+                     NhanVien obj = (NhanVien) objectInputStream.readObject();
+                     nv_list.add(obj);
+                 }
+                objectInputStream.close();
+                fileInputStream.close();
+
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            myArrayAdapter = new MyArrayAdapter(MainActivity.this,R.layout.listview_item,nv_list);
+            listViewNhanVien.setAdapter(myArrayAdapter);
+        }
+    });
+
     }
 }

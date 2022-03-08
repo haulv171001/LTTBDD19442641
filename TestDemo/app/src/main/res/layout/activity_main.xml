@@ -99,8 +99,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
-            android:id="@+id/btTruyVan"
-            android:text="TRUY VẤN"
+            android:id="@+id/btghi"
+            android:text="Ghi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btdoc"
+            android:text="Đọc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
