@@ -20,8 +20,7 @@
     <TextView
         android:id="@+id/tv_showinfo"
         android:paddingTop="35dp"
-        android:textSize="15sp"
-        android:text="Text"
+        android:textSize="20sp"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="100dp"/>

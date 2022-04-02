@@ -1,20 +1,23 @@
 package com.example.testdemo;
 
+import android.app.Activity;
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class hinhanhadapter extends BaseAdapter {
-    private Context context;
+    private Activity context;
     private int layout;
-    private List<HinhAnh> hinhAnhList;
+    private ArrayList<HinhAnh> hinhAnhList = null ;
 
-    public hinhanhadapter(Context context, int layout, List<HinhAnh> hinhAnhList) {
+    public hinhanhadapter(Activity context, int layout, ArrayList<HinhAnh> hinhAnhList) {
         this.context = context;
         this.layout = layout;
         this.hinhAnhList = hinhAnhList;
@@ -37,22 +40,13 @@ public class hinhanhadapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if(convertView == null){
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(layout , null);
-            holder.imgHinh = convertView.findViewById(R.id.hinhanh);
-            convertView.setTag(holder);
-        }else{
-            holder = (ViewHolder) convertView.getTag();
+        LayoutInflater inflater = context.getLayoutInflater();
+        convertView = inflater.inflate(layout,null);
+        if(hinhAnhList.size() > 0 && position >= 0 ){
+            final  HinhAnh a = hinhAnhList.get(position);
+            final ImageView img = convertView.findViewById(R.id.hinhanh);
+            img.setImageResource(a.getHinh());
         }
-        HinhAnh hinhAnh = hinhAnhList.get(position);
-        holder.imgHinh.setImageResource(hinhAnh.getHinh());
-        return convertView;
-    }
-
-    private class ViewHolder{
-        ImageView imgHinh;
+        return  convertView;
     }
 }

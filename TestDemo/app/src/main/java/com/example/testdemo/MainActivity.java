@@ -184,9 +184,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             try {
                 FileOutputStream fos = openFileOutput("test.txt",MODE_PRIVATE);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
-               for(NhanVien nv : nv_list){
-                   oos.writeObject(nv);
-               }
+                oos.writeObject(nv_list);
                 oos.close();
                 fos.close();
             } catch (FileNotFoundException e) {
