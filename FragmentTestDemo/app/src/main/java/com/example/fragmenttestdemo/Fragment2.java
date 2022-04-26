@@ -24,7 +24,6 @@ public class Fragment2 extends Fragment {
         txtName = (TextView) view.findViewById(R.id.tv_tenSanPham);
         txtPrice = (TextView) view.findViewById(R.id.tv_dongiasp);
         imgproduct = (ImageView) view.findViewById(R.id.img_sp);
-
         return view;
     }
     public  void setProduct(Product product){

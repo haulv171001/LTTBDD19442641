@@ -1,13 +1,14 @@
 package com.example.fragmenttestdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity implements TruyenProduct {
-
+    Fragment fragment1,fragment2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

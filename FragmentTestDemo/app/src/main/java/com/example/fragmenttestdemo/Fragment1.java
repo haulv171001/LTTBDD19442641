@@ -1,5 +1,6 @@
 package com.example.fragmenttestdemo;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,15 +34,6 @@ public class Fragment1 extends Fragment {
                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Fragment2 fragment2 = new Fragment2();
-//                Configuration configuration = getResources().getConfiguration();
-//                if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
-//                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameContent,fragment2,"findThisFragment").addToBackStack(null).commit();
-//                    truyenProduct.DataProduct(productArrayList.get(position));
-//                }else{
-//                    truyenProduct.DataProduct(productArrayList.get(position));
-//                }
-
                 truyenProduct.DataProduct(productArrayList.get(position));
             }
         });
