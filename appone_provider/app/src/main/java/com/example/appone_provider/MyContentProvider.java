@@ -36,8 +36,8 @@ public class MyContentProvider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        long number_row = db.delete(PRODUCT_TABLE,"id=?",new String[]{ String.valueOf(uri.getPathSegments().get(0))});
-        throw new UnsupportedOperationException("Not yet implemented");
+        db.delete(PRODUCT_TABLE,"id="+selection,selectionArgs);
+        return 0;
     }
 
     @Override

@@ -55,6 +55,30 @@ public class ProductActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ArrayList<String> string_list = new ArrayList<>();
                 Uri product = Uri.parse(uri);
+                String id = et_id.getText().toString();
+                    Cursor cursor = getContentResolver().query(product, null,null, null, "name");
+                    if(cursor!=null){
+                        cursor.moveToFirst();
+                        do {
+                            string_list.add(cursor.getInt(0)+"");
+                            string_list.add(cursor.getString(1));
+                            string_list.add(cursor.getString(2));
+                            string_list.add(cursor.getString(3));
+                        }while (cursor.moveToNext());
+                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ProductActivity.this, android.R.layout.simple_list_item_1,string_list);
+                        listview.setAdapter(adapter);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Khong co ket qua", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        });
+        btDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri product = Uri.parse(uri);
+                String id = et_id.getText().toString();
+                getContentResolver().delete(product,id,null);
+                ArrayList<String> string_list = new ArrayList<>();
                 Cursor cursor = getContentResolver().query(product,null,null,null,"name");
                 if(cursor!=null){
                     cursor.moveToFirst();
